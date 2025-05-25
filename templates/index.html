@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Customer Churn Prediction</h1>
+    <form action="\predict" method="post">
+        Age: <input type="number" name="Age" required><br><br>
+        Gender:
+        <select name="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+        Tenure: <input type="number" name="Tenure" required><br><br>
+        Usage Frequency: <input type="number" name="Usage Frequency" required><br><br>
+        Support Calls: <input type="number" name="Support Calls" required><br><br>
+        Payment Delay: <input type="number" name="Payment Delay" required><br><br>
+        Subscription Type:
+        <select name="Subscription Type">
+            <option value="Basic">Basic</option>
+            <option value="Standard">Standard</option>
+            <option value="Premium">Premium</option>
+        </select><br><br>
+        Contract Length:
+        <select name="Contract Length">
+            <option value="Monthly">Monthly</option>
+            <option value="Quarterly">Quarterly</option>
+            <option value="Annual">Annual</option>
+        </select><br><br>
+        Total Spend: <input type="number" name="Total Spend" step="any" required><br><br>
+        Last Interaction: <input type="number" name="Last Interaction" required><br><br>
+
+        <input type="submit" value="Predict">
+
+    </form>   
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</body>
+</html>
